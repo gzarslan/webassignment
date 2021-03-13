@@ -1,0 +1,24 @@
+<section>
+   
+    <h1>TV shows</h1>
+   
+   <div class="tv">
+  {{#each TV}}
+            <div class="tvProducts"> 
+                  <fieldset>                 
+                <a href="/products/{{this.id}}">
+                <img src="{{this.src}}" />
+                 <span class="name">{{this.title}}</span></a>
+                 </fieldset>
+            </div>
+          
+        {{/each}}
+        
+
+
+ 
+   
+</div>
+
+
+    </section>

@@ -1,0 +1,268 @@
+
+/***********************
+ --Name:Gozde Arslan 
+ --ID: 150320190 
+ --Date: 27/02/2021
+ --Purpose: Assignment 1 WEB322
+  --***********************/
+
+
+const express = require("express");
+const exphbs  = require('express-handlebars');
+const bodyParser = require('body-parser');
+
+
+//import database module
+const fakeDB  = require("./model/FakeDB.js");
+//call express
+const app = express();
+
+
+
+//THIS TELLS THE APP OBJECT WHICH EXPRESS WHICH TEMPLATE ENGINE WE ARE USING
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: false }));
+const sgMail = require('@sendgrid/mail');
+require('dotenv').config({ path: 'config/keys.env' });
+
+
+//MY ROUTES//
+//home page 
+app.get("/",(req,res)=>{
+
+
+    //load index.handlebars
+    res.render("home",{
+       title : "Home Page",
+       hero:fakeDB.getAllHero(), 
+       All : fakeDB.getAllProducts(),
+       MV:fakeDB.getMovies(),     
+       TV: fakeDB.getTv()  ,      
+     //  MV:fakeDB.getAllFeaturedProducts("mv"),
+     //  TV:fakeDB.getAllFeaturedProducts("tv")
+        
+       
+    });
+})
+
+  
+
+
+//SIGN IN//
+app.get("/sign",(req,res)=>{
+
+    res.render("sign",{
+        title : "Sign In",
+     
+    });
+})
+app.post("/sign",(req,res)=>{
+
+
+    if(req.body.firstName==""){
+        error1="First name must be  between 2 and 30 character long"
+        res.render("sign",{
+            title : "Sign In",         
+           error1:error1
+        });
+    }    
+    if(req.body.lastName==""){
+        error2="Last name must be between 2 and 30 character long"
+        res.render("sign",{
+            title : "Sign In",
+         
+           error2:error2
+        });
+
+    }
+    var emailControl=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9_-]+)$/;
+    if(!emailControl.test(req.body.email)){
+        error3="Please enter your email address"
+        res.render("sign",{
+            title : "Sign In",
+           error3:error3
+        });
+
+    }
+    var passwordControl=/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;  
+    if((req.body.psw).length <8){
+        error4="Password must be  minimum 8 character"
+        res.render("sign",{
+            title : "Sign In",
+           error4:error4
+        });    
+      
+             }else if(!passwordControl.test(req.body.psw)){
+     
+             error5="Please enter valid password"
+             res.render("sign",{
+            title : "Sign In",
+           error5:error5
+             });        
+    } 
+    else{
+      
+            sgMail.setApiKey(process.env.SEND_GRID_API_KEY)
+            const msg = {
+              to: 'gozdearslan2010@gmail.com', // Change to your recipient
+              from: 'garslan@myseneca.ca', // Change to your verified sender
+              subject: 'MooviE-x Registeraion Information',
+              text: 'and easy to do anywhere, even with Node.js',
+              html: '<strong>Successfully Created Account </strong>',
+            }
+            sgMail
+              .send(msg)
+              .then(() => {
+                console.log('Email sent');
+                res.redirect("/");
+              })
+              .catch((error) => {
+                console.error(error)
+                
+              })
+      
+             
+      
+            }
+})
+
+
+//get membership
+app.get("/login",(req,res)=>{
+
+
+    //load about.handlebars    
+    
+            res.render("login",{
+             
+            
+            });
+
+            
+ 
+    
+})
+app.post("/login",(req,res)=>{
+   
+ 
+  
+    if(req.body.email===""){
+        error1="please enter valid email";  
+        res.render("login",{
+            title : "Log In",      
+             error1:error1
+           
+         
+        });    
+    }
+    if(req.body.psw===""){
+
+        error2="Password must be 8 character length";  
+        res.render("login",{
+            title : "Log In",
+            error2:error2
+           
+        });
+
+    } 
+    else{
+
+        const accountSid = 'AC4bde0b2b378300f3f7e179374611b944';
+        const authToken = 'c9ada41083da325c56711c98494435af';
+        const client = require('twilio')(accountSid, authToken);
+        
+        client.messages
+          .create({
+             body: `${req.body.email}`,
+             from: '+12566854206',
+             to:'+16477021644',
+           })
+          .then(message =>
+            {
+            
+            console.log(message.sid)
+            res.redirect("/");
+           } );
+
+
+
+       
+    }
+    //load index.handlebars
+   
+})
+
+
+
+
+
+app.get("/payment",(req,res)=>{
+
+
+    //load about.handlebars
+    res.render("payment",{
+        title: "payment"
+    });
+})
+
+app.get("/contact",(req,res)=>{
+
+
+    //load about.handlebars
+    res.render("contact",{
+        title: "contact Page"
+    });
+})
+app.post("/contact",(req,res)=>{
+
+
+    //load about.handlebars
+    res.render("contact",{
+        title: "contact Page"
+    });
+
+})
+
+
+
+
+//EACH PRODUCTS MOVIE ADN TV RoUTE
+app.get("/products/:id",(req,res)=>{
+
+    //console.log(req.params.id)
+    res.render("movieAndTvDescription",{
+        product : fakeDB.getAProduct(req.params.id),
+      
+    })
+})
+
+//TV SHOWS ROUTE
+app.get("/tv",(req,res)=>{
+
+    //load productListing.handlebars
+    res.render("tv",{
+     title:"Tv Shows",
+    
+     TV: fakeDB.getTv()  ,
+    });
+})
+app.get("/movie",(req,res)=>{
+
+
+    //load productListing.handlebars
+    res.render("movie",{
+       title:"movies",
+       MV:fakeDB.getMovies(),     
+       
+       //  movies:fakeDB.getMovies()
+    });
+})
+ 
+const PORT = 5000;
+app.listen(PORT, ()=>{
+
+    console.log(`Web Server is up and running on PORT ${PORT}`)
+})

@@ -1,0 +1,62 @@
+<section>
+ 
+
+  <p  id="formReg">
+ 
+ <div class="center"><h1 class="title"> Create Account </h1></div>
+
+     <fieldset class="field">
+  <legend></legend>
+    <!--  <form id="conctact-form" name="feedback" action="https://httpbin.org/post" method="POST"> -->
+   <form id="conctact-form" name="feedback" action="/sign" method="POST"></form> 
+  
+    <div id="contactForm">
+    <form id="conctact-form" name="feedback" action="/sign" method="post">
+        <label><b id="redstar">*</b>First name:       
+          <input type="text"   id="contact1" name="firstName" autocomplete="given-name" />
+            <p id="error">{{error1}}</p>   
+        </label>
+        <label>
+          <b id="redstar">*</b>Last  name:  
+           <input type="text" id="contact1" name="lastName" size="85" tabindex="1" autocomplete="given-name"/>
+            <p id="error">{{error2}}</p>   
+        </label>
+        
+        
+        <label for="email"><b id="redstar">*</b>Your email:<input type="text"  id="contact"     name="email"    tabindex="3" /> </label>
+         <p id="error">{{error3}}</p>
+  
+       <label> <b id="redstar">*</b>Password: <input type="text"  id="contact" name="psw" /></label>
+     
+         
+    <p id="error">{{error4}}</p>           
+       
+       
+        <br>
+         <input type="checkbox"  <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>        
+        <div class="buttons">
+        <input type="submit" name="Submit" value="SEND" tabindex="8" />
+        <input type="reset" name="Reset" value="CANCEL" tabindex="9" />
+      </div>
+        <br />
+        <br />
+     
+
+        <b id="redstar">*</b>fields must be filled
+      </form>
+    </div>
+
+      
+  
+   </fieldset>
+  	</div>
+
+
+   
+
+  </body>
+  
+    </p>
+
+ 
+</section>

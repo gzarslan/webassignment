@@ -1,0 +1,133 @@
+
+
+
+<section>  
+
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <img src="https://images2.vudu.com/assets/page/banner/187042-1305" style="width:100%" >
+    <div class="text"></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <img src="https://images2.vudu.com/assets/mixMatch/banner/187058-1305" style="width:100%">
+    <div class="text"></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <img src="https://images2.vudu.com/assets/page/banner/187022-1305" style="width:100%">
+    <div class="text"></div>
+  </div>
+
+  
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+
+</div>
+
+<hr>
+<div class="mainPage" >
+
+
+<p >
+
+ <a  href="/"> All Films </a> 
+ <br>  
+
+   
+         <div class="allP">
+        {{#each All}}
+            <div class="allProduct"> 
+                 <fieldset> 
+                <a href="/products/{{this.id}}">
+                <img src="{{this.src}}" />
+                 <p class="name">{{this.title}}</p></a>
+                 </fieldset>
+            </div>
+          
+        {{/each}}
+         </div>
+
+        
+</p>
+
+<hr>
+
+<p >
+ <a id="mv" href="/movie">Featured Movies  </a>
+     
+
+   
+         <div class="movies">
+        {{#each MV}}
+            <div class="products" style="float: inline-start"> 
+                 <fieldset> 
+                <a href="/products/{{this.id}}">
+                <img src="{{this.src}}" />
+                 <p class="name">{{this.title}}</p></a>
+                 </fieldset>
+            </div>
+          
+        {{/each}}
+            </div>
+</p>
+
+<hr>
+
+ <div class="spolight">
+    <div class="numbertext"></div>
+    <img src="https://images2.vudu.com/assets/page/banner/187029-1305" style="width:100%" >
+    <div class="text"></div>
+  </div>
+
+
+  <hr>
+
+<p >
+ <a id="tv" href="/tv">Featured Tv Shows  </a>
+     
+
+   
+         <div class="tvShows">
+        {{#each TV}}
+            <div class="tvProducts" style="float: inline-start"> 
+                 <fieldset> 
+                <a href="/products/{{this.id}}">
+                <img src="{{this.src}}"/>
+                 <p class="name">{{this.title}}</p></a>
+                 </fieldset>
+            </div>
+          
+        {{/each}}
+            </div>
+</p>
+
+    <div class="spolight">
+    <div class="numbertext"></div>
+    <img src="https://images2.vudu.com/assets/page/banner/187029-1305" style="width:100%" >
+    <div class="text"></div>
+  </div>
+
+
+
+</section>
+     
+        
+
+       
+
+        
+         

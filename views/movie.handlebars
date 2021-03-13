@@ -1,0 +1,24 @@
+<section>
+   
+    <h1> Movies</h1>
+   
+   <div class="mv">
+  {{#each MV}}
+            <div class="mvProducts"> 
+                  <fieldset>                 
+                <a href="/products/{{this.id}}">
+                <img src="{{this.src}}" />
+                 <span class="name">{{this.title}}</span></a>
+                 </fieldset>
+            </div>
+          
+        {{/each}}
+        
+
+
+ 
+   
+</div>
+
+
+    </section>

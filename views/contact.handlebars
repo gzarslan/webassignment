@@ -1,0 +1,169 @@
+<section>
+  <p>
+  
+ <div class="center"><h1 class="title"> Contact Us  </h1></div>
+   <fieldset>
+        <legend>Contact From</legend>
+             <form id="conctact-form" name="feedback" action="https://httpbin.org/post" method="post">   
+                <div id="contactForm">
+                   <form id="conctact-form" name="feedback" action="https://httpbin.org/post" method="post">
+                    <label>
+                        <b id="redstar">*</b>Your first name:
+                         <input type="text"      
+                          required id="contact1" 
+                          name="name"
+                          size="85"
+                          tabindex="1"
+                          autocomplete="given-name"
+                         Pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)"/>
+                      </label>
+                    <label>
+                      <b id="redstar">*</b>Your Last name:
+                      <input type="text"
+                      required id="contact1" 
+                       name="name"
+                       size="85"
+                      tabindex="2"
+                       autocomplete="given-name"
+                      required/>
+                   </label>
+                    <label>
+               <b id="redstar">*</b>Your email:
+                  <input type="text"
+                     required id="contact"
+                      name="_replyto" 
+                      tabindex="3"
+            />
+        </label>
+        <label>
+          <b id="redstar">*</b>Address:
+          <input type="text" required id="contact" name="address" />
+        </label>
+        <br><br><br>
+       
+      	<label>Province <span>*</span></label>	
+	<select id="provinces" name="province">
+			<option value="ON" selected>ON</option>
+            <option value="NL">NL</option>
+            <option value="PE">PE</option>
+            <option value="NS">NS</option>
+			<option value="NB">NB</option>
+            <option value="QS">QS</option>
+            <option value="MB">MB</option>
+            <option value="SK">SK</option>
+			<option value="AB">AB</option>
+            <option value="BC">BC</option>
+            <option value="YT">YT</option>
+            <option value="NT">NT</option>
+			<option value="NU">NU</option>
+</select>	</label>
+
+<br>
+<br>
+ <br>
+        <label for="postalcode">Postal Code</label>
+      <input
+        id="form-control"
+        name="Postalcode"
+        autocomplete="Postal-Code"
+        type="text"
+        tabindex="4"
+        pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$"
+          required
+      />
+       <br>
+      <br>
+      <br>
+     
+        <div>
+          <input
+            type="radio"
+            onclick="javascript:yesNoCheck();"
+            id="noCheck"
+            name="option1"
+           tabindex="5"
+            value="userenter"
+
+            checked
+          />
+          <label for="question">Question</label><br />
+
+          <input
+            type="radio"
+            onclick="javascript:yesNoCheck();"
+            id="noCheck"
+            name="option1"
+            value="userenter"
+          />
+          <label for="comment">Comment</label><br />
+
+          <input
+            type="radio"
+            onclick="javascript:yesNoCheck();"
+            id="yesCheck"
+            name="option1"
+            value="choice3"
+          />
+          <label for="orderprob">Order problem<br /><br />
+         <datalist id="feedback-problems">
+        <option value="Lost item">
+        <option value="shipping issues">
+        <option value="sold out books">
+        <option value="about my order">
+        <option value="cancel order">
+      </datalist></label>
+        </div>
+
+        <div id="ifYes">
+          <label><b id="redstar">*</b>Order number</label>
+        
+          <input type="text" id="cont" name="orderrep" />
+          <br><br>
+
+      
+     
+
+          <br />
+          <br />
+        </div>
+
+        <label>
+          <b id="redstar">*</b>Your message:
+          <textarea
+            name="message"
+            required
+            id="contact"
+            maxlength="1000"
+            rows="10"
+            cols="250"
+            tabindex="8"
+                 placeholder="Please enter message.."
+          ></textarea>
+        </label>
+        <input type="hidden" id="myname" name="username" value="Gozde Arslan" />
+       
+        <div class="buttons">
+        <input type="submit" name="Submit" value="SEND" tabindex="8" />
+        <input type="reset" name="Reset" value="CANCEL" tabindex="9" />
+      </div>
+        <br />
+        <br />
+
+        <b id="redstar">*</b>fields must be filled
+      </form>
+    </div>
+
+      
+  
+   </fieldset>
+  	</div>
+
+
+   
+
+  </body>
+  <br>
+  <br>
+    </p>
+ 
+</section>

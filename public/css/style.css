@@ -1,0 +1,579 @@
+
+
+/* logo css*/
+#logo{ 
+    float: left;
+    width:25%; 
+  
+    
+
+ }
+ header{  
+  color:black;
+  font-weight: bold;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-color: black;
+  margin-top: 20px;
+  display:block;
+  
+ 
+ 
+
+ }
+ 
+   /* Style the links inside the navigation bar */
+   .topNav a {
+    
+    color:black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 30px;   
+    
+  
+   
+  }
+  #search{
+
+    width:30%; 
+  
+  }
+  
+  /* Change the color of links on hover */
+  .topNav a:hover {
+    background-color: white;
+    color:red;
+   
+  }
+  .topNav {
+  
+    overflow: hidden;
+    color:black;   
+   
+    
+  }
+  .allProduct {
+    
+    width: 15%;
+    display: inline-block;
+   
+  }
+  
+
+
+img
+{
+    width:50%;
+    display: inline-block;
+    text-align: center;
+    
+}
+.name{
+  text-align: bottom;
+  text-decoration: none;
+ font-family: cursive;
+color:black
+
+}
+
+.mvProducts{
+  width: 25%;
+  display:block;
+  float: left;
+  text-align: center;
+  display:inline;
+  color:black;
+  text-align: center;
+  
+
+}
+.tvProducts{
+  width: 33%; 
+  text-align: center;
+  display:inline-block;
+  color:black;
+  
+
+}
+header nav ul li{
+
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 100px;
+    color:black;
+   
+  
+   
+
+}
+
+
+
+
+
+nav li a{
+
+    color:black;
+    margin-left: 10px;
+    margin-top: fixed;
+    float: none;
+    display: block;
+   
+  
+
+    
+}
+
+#contactForm {
+  align-content: center;
+  padding-left: 30%;
+  width: 150%;
+  margin: auto;
+  background-size: 10px;
+  text-align: left;
+}
+#contact {
+  align-content: center;
+  width: 30%;
+  padding: 12px 2px;
+  margin-right: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding-right: 10px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.checked {
+  color: pink;
+}
+#contact1 {
+  align-content: center;
+  width: 30%;
+  padding: 12px 2px;
+  margin-right: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding-right: 10px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+  
+
+body{
+
+    color:black;
+    font-size: medium;
+    width: 95%;
+   
+    background-color: (to right, #ff5f6d, #ffc371);
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
+    text-decoration: none;
+    
+}
+  main{
+    
+    width: 2000px;
+    text-align: center;
+    margin: auto;   
+    color:black;
+    display:inline- block;
+    text-decoration: none;
+
+  
+  }
+  
+
+
+
+.hero {
+  display: block; 
+  width: 100%; 
+  height: initial;
+  margin-top: fixed;
+  text-align: center;
+   
+}
+.movies{
+  
+  display: block;
+  margin-top: fixed;
+  height: initial;
+  margin-top: fixed;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;  
+  display: inline-block;
+  font-family:cursive;
+  text-decoration: none;
+
+
+}
+
+
+
+
+/*for product desription */
+
+#desc{
+
+  
+  float:right;
+  font-family:cursive;
+
+
+}
+
+/*home.handlebars css*/
+
+
+.movies{
+  color:black;
+  display: inline-block;
+  text-align: center;
+  visibility: visible;
+
+  font-family:cursive;
+
+}
+.tvShows{
+  color:black;
+  display: inline-block;
+  text-align: center;
+  visibility: visible;
+  border: #ddd;
+  font-family:cursive;
+
+}
+.name{
+
+  color:black;
+  float:bottom;
+  font-family:cursive;
+  text-decoration: none;
+
+}
+
+/*payment Icon*/
+.paymentIcon{
+
+  float:right;
+  color:black;
+  font-size: 30px;
+  font-family:cursive;
+
+
+}
+.socialIcon{
+
+  float:left;
+  color:white;
+  font-size: 30px;
+
+
+
+}
+.fa {
+  padding: 20px;
+  font-size: 50px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 30%;
+  color:#ddd;
+  text-decoration: none;
+
+}
+footer{
+
+ 
+  position:sticky;
+  padding-top: 10em;
+  font-family:cursive;
+  text-decoration:none;
+ 
+ 
+ 
+
+}
+
+
+
+.row py-4{
+
+  background-color: #ff5f6d;
+}
+
+
+
+
+/*/////////////////////Payment form CSS */
+
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 75%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color:blueviolet;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 75%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color:whitesmoke;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+
+/*product Description CSS */
+#image {
+  margin-bottom: 20px;
+  font-size: 35px;
+  width: 30%;
+}
+#rating{
+
+  font-size: 15px;  
+ color: black;
+
+ 
+
+}
+
+
+#title{
+  font-size: 35px;
+  color:black;
+
+  
+
+}
+#desc{
+  font-size: 25px;
+  color:black;
+  float: right;
+
+
+}
+.pageDescription{
+
+
+  display:block;
+}
+/*/ tv handlebars CSS*/
+
+#errors{
+
+  text-align: center;
+
+
+}
+#errorsS{
+
+  text-align: left;
+
+
+}
+
+.mv{
+  display:inline-block;
+
+
+}
+
+.productMovie{
+  color:white;
+  display: inline-block;
+  text-align: center;
+  visibility: visible;
+  border: #ddd;
+}
+.form{
+
+  width: 30%;
+margin: auto;
+text-align: center;
+align-content: center;}
+
+.add{
+
+  background-color:#ff5f6d; 
+  font-family: cursive;
+ 
+}
+
+
+/*//////// Slide show Css*/
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  margin: center;
+  
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 180%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  width:100%;
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
