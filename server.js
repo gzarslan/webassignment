@@ -21,7 +21,7 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 const sgMail = require("@sendgrid/mail");
-
+require("dotenv").config({ path: "config/keys.env" });
 
 //////////////////////////////// ----ROUTES----///////////////////////////////////
 //HOME PAGE//
@@ -50,14 +50,14 @@ app.post("/sign", (req, res) => {
   var emailControl = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9_-]+)$/;
   var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
   if (req.body.firstName ==="") {
-    error1 = "First name must be  between 2 and 30 character long";
+    error1 = "*First name must be  between 2 and 30 character long";
     res.render("sign", {
       title: "Sign In",
       error1: error1,
     });
   }
   if (req.body.lastName ==="") {
-    error2 = "Last name must be between 2 and 30 character long";
+    error2 = "*Last name must be between 2 and 30 character long";
     res.render("sign", {
       title: "Sign In",
       error2: error2,
@@ -65,7 +65,7 @@ app.post("/sign", (req, res) => {
   }  
   
   if (!emailControl.test(req.body.email)) {
-    error3 = "Please enter your email address";
+    error3 = "*Please enter your email address";
     res.render("sign", {
       title: "sign In",
       error3: error3,
@@ -73,7 +73,7 @@ app.post("/sign", (req, res) => {
   }
   var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
  if (!passwordControl.test(req.body.psw)) {
-    error5 = "Please enter valid password";
+    error5 = "*Please enter valid password";
     res.render("sign", {
       title: "sign In",
       error5: error5,
@@ -107,14 +107,14 @@ app.get("/login", (req, res) => {
 });
 app.post("/login", (req, res) => {
   if (req.body.email === "") {
-    error1 = "please enter valid email";
+    error1 = "*Please enter valid email";
     res.render("login", {
       title: "log In",
       error1: error1,
     });
   }
   else if (req.body.psw === "") {
-    error2 = "Password must be 8 character length";
+    error2 = "*Password must be 8 character length";
     res.render("login", {
       title: "Log In",
       error2: error2,
