@@ -46,14 +46,14 @@ app.get("/sign", (req, res) => {
   });
 });
 app.post("/sign", (req, res) => {
-  if (req.body.firstName == "" || req.body.firstName.length < 2) {
+  if (req.body.firstName == "" || (req.body.firstName).length < 2) {
     error1 = "*First name must be  between 2 and 30 character long";
     res.render("sign", {
       title: "Sign In",
       error1: error1,
       
     });
-  } else if (req.body.lastName === "" || req.body.lastName.length < 2) {
+  } else if (req.body.lastName === "" || (req.body.lastName).length < 2) {
     error2 = "*Last name must be between 2 and 30 character long";
     res.render("sign", {
       title: "Sign In",
@@ -73,7 +73,7 @@ app.post("/sign", (req, res) => {
     });
   }
   var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
-  if (!passwordControl.test(req.body.psw) ||req.body.psw.length == "") {
+  if (!passwordControl.test(req.body.psw) ||(req.body.psw).length == "") {
     error5 = "*Please enter valid password";
     res.render("sign", {
       title: "sign In",

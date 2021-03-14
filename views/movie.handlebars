@@ -1,13 +1,13 @@
 <section>
 
     <h1 id="mvHeader"> Movies</h1>
-    <br><br>
+    <br>
 
     <div class="mv">
         {{#each MV}}
         <div class="mvProducts">
             <fieldset>
-                <a href="/products/{{this.id}}">
+                <a id="pro" href="/products/{{this.id}}">
                     <img src="{{this.src}}" />
                     <p class="name">{{this.title}}</p>
                 </a>
@@ -15,10 +15,6 @@
         </div>
 
         {{/each}}
-
-
-
-
 
     </div>
 

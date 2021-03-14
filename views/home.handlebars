@@ -28,18 +28,18 @@
   </div>
 
  
-
+ <a id="containerAll" href="/movie">Featured Movies </a>
     <p>
-      <a id="containerAll" href="/movie">Featured Movies </a>
+     
       <br>
     <div class="mv">
       {{#each MV}}
       <div class="mvProducts">
         <fieldset>
-          <a href="/products/{{this.id}}">
+          <a id="pro"href="/products/{{this.id}}"> 
             <img src="{{this.src}}" />
-            <p class="name">{{this.title}}</p>
-          </a>
+            <p  class="name">{{this.title}}</p>
+         </a>
         </fieldset>
       </div>
 
@@ -53,13 +53,14 @@
       <div class="numbertext"></div>
       <img src="https://images2.vudu.com/assets/page/banner/187029-1305" style="width:100%">
       <div class="text"></div>
-    </div>
-
+   
+  </div>
 
     <hr>
-
+   
+     <a id="containerAll" href="/tv">Featured Tv Shows </a>
     <p>
-      <a id="containerAll" href="/tv">Featured Tv Shows </a>
+      
       <br>
 
 
@@ -68,7 +69,7 @@
       {{#each TV}}
       <div class="tvProducts">
         <fieldset>
-          <a href="/products/{{this.id}}">
+          <a id="pro" href="/products/{{this.id}}">
             <img src="{{this.src}}" />
             <p class="name">{{this.title}}</p>
           </a>
