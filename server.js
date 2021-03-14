@@ -49,6 +49,7 @@ app.post("/sign", (req, res) => {
   
   var emailControl = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9_-]+)$/;
   var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
+  var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
   if (req.body.firstName ==="") {
     error1 = "*First name must be  between 2 and 30 character long";
     res.render("sign", {
@@ -71,7 +72,7 @@ app.post("/sign", (req, res) => {
       error3: error3,
     });
   }
-  var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
+ 
  if (!passwordControl.test(req.body.psw)) {
     error5 = "*Please enter valid password";
     res.render("sign", {
