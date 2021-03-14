@@ -106,6 +106,7 @@ app.post("/sign", (req, res) => {
         console.error(error);
       });
   }
+  }
 });
 
 //---LOGIN---//
