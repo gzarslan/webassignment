@@ -5,19 +5,19 @@
         <h1>Create Account</h1>
 
         <label for="email"><b>*First Name</b></label>
-        <input type="text" placeholder="Enter first name" name="firstName" >
+        <input type="text" placeholder="Enter first name" tabindex="1" maxlength="25"name="firstName" autocomplete={{firstName}} >
         <p id="errorsS">{{error1}}</p>
 
         <label for="email"><b>*Last Name</b></label>
-        <input type="text" placeholder="Enter last name" name="lastName" >
+        <input type="text" placeholder="Enter last name" name="lastName"value={{lastName}} >
         <p id="errorsS">{{error2}}</p>
 
         <label for="email"><b>*Email Adress</b></label>
-        <input type="text" placeholder="Enter Email" name="email" >
+        <input type="text" placeholder="Enter Email" name="email" value={{email}} >
         <p id="errorsS">{{error3}}</p>
 
         <label for="psw"><b>*Create Password</b></label>
-        <input id="psw" type="password" placeholder="Enter Password" name="psw" >
+        <input id="psw" type="password" placeholder="Enter Password" name="psw" value={{psw}} >
         <p id="errorsS">{{error5}}</p>
 
         <button type="submit" class="btn">Sign Up</button>

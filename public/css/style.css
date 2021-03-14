@@ -179,43 +179,14 @@ footer {
 
 /*//////////////////////////////*/
 
-#contactForm {
-  align-content: center;
-  padding-left: 30%;
-  width: 150%;
-  margin: auto;
-  background-size: 10px;
-  text-align: left;
-}
-#contact {
-  align-content: center;
-  width: 30%;
-  padding: 12px 2px;
-  margin-right: 20px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  padding-right: 10px;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+#welcome a{
+  font-size: 200%;
+  text-decoration: solid;
 
-.checked {
-  color: pink;
+
 }
-#contact1 {
-  align-content: center;
-  width: 30%;
-  padding: 12px 2px;
-  margin-right: 20px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  padding-right: 10px;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+#contact-form{
+
 }
 
 /*/////////////////////Payment form CSS */
