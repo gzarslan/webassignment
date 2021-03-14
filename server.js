@@ -21,7 +21,9 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 const sgMail = require("@sendgrid/mail");
+
 require('dotenv').config({ path: 'config/keys.env' })
+
 
 
 
@@ -48,6 +50,7 @@ app.get("/sign", (req, res) => {
   });
 });
 app.post("/sign", (req, res) => {
+
  
   if (req.body.firstName ==="") {
     error1 = "*First name must be  between 2 and 30 character long";
@@ -62,10 +65,10 @@ app.post("/sign", (req, res) => {
       title: "Sign In",
       error2: error2,
     });
-  }  
-   
-  var emailControl = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9_-]+)$/;
-  
+  }   
+
+   var emailControl = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9_-]+)$/;
+
   if (!emailControl.test(req.body.email)) {
     error3 = "*Please enter your email address";
     res.render("sign", {
@@ -73,14 +76,16 @@ app.post("/sign", (req, res) => {
       error3: error3,
     });
   }
- /* var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
+ var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
   if (!passwordControl.test(req.body.psw)) {
+  var passwordControl = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+ if (!passwordControl.test(req.body.psw)) {
     error5 = "*Please enter valid password";
     res.render("sign", {
       title: "sign In",
       error5: error5,
     });
-  } */
+  } 
   
   else {
     sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
