@@ -21,7 +21,7 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 const sgMail = require("@sendgrid/mail");
-require("dotenv").config({ path: "config/keys.env" });
+
 
 //////////////////////////////// ----ROUTES----///////////////////////////////////
 //HOME PAGE//
