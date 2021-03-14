@@ -76,9 +76,7 @@ app.post("/sign", (req, res) => {
       error3: error3,
     });
   }
- var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
-  if (!passwordControl.test(req.body.psw)) {
-  var passwordControl = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+ var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/; 
  if (!passwordControl.test(req.body.psw)) {
     error5 = "*Please enter valid password";
     res.render("sign", {
@@ -105,8 +103,9 @@ app.post("/sign", (req, res) => {
       .catch((error) => {
         console.error(error);
       });
+    }
   }
-});
+ });
 
 //---LOGIN---//
 app.get("/login", (req, res) => {
@@ -129,22 +128,25 @@ app.post("/login", (req, res) => {
       error2: error2,
     });
   } else {
-    const accountSid = "AC4bde0b2b378300f3f7e179374611b944";
-    const authToken = "c9ada41083da325c56711c98494435af";
-    const client = require("twilio")(accountSid, authToken);
-
-    client.messages
-      .create({
-        body: `${req.body.email}`,
-        from: "+12566854206",
-        to: "+16477021644",
-      })
-      .then((message) => {
-        console.log(message.sid);
+    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+    const msg = {
+      to: "gozdearslan2010@gmail.com", // Change to your recipient
+      from: "garslan@myseneca.ca", // Change to your verified sender
+      subject: "MooviE-x Registration Information",
+      text: "and easy to do anywhere, even with Node.js",
+      html: "<strong> Account Successfully Created </strong>",
+    };
+    sgMail
+      .send(msg)
+      .then(() => {
+        console.log("Email sent");
         res.redirect("/welcome");
+      })
+      .catch((error) => {
+        console.error(error);
       });
-  }
-  //load index.handlebars
+    }
+  
 });
 
 app.get("/payment", (req, res) => {
