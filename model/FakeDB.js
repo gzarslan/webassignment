@@ -11,7 +11,8 @@ const fakeDB = {
             rentalPrice:5.99,
             trailer:'https://www.vudu.com/content/movies/play/1616928/TRAILER?returnUrl=%252Fcontent%252Fmovies%252Fdetails%252FMonster-Hunter%252F1616928',
             description:"When Lt. Artemis and her loyal soldiers are transported to a new world, they engage in a desperate battle for survival against enormous enemies with incredible powers.",
-           featured:true,
+            featured:true,
+            
            src:"https://images2.vudu.com/poster2/1616928-168",
            hero:"https://images2.vudu.com/poster2/1616928-168"
 
@@ -170,7 +171,7 @@ const fakeDB = {
             buyPrice:9.99,
             rentalPrice:4.99,
             trailer:'https://www.vudu.com/content/movies/play/4973/TRAILER?returnUrl=%252Fcontent%252Fmovies%252Fdetails%252FThe-Mummy%252F4973',
-            description:"https://www.vudu.com/content/movies/play/4973/TRAILER?returnUrl=%252Fcontent%252Fmovies%252Fdetails%252FThe-Mummy%252F4973",
+            description:"",
             featured:true,
             src:"https://images2.vudu.com/poster2/4973-168"
 
@@ -331,22 +332,7 @@ const fakeDB = {
             src:"https://images2.vudu.com/poster2/1655001-168"
 
         },
-
-        {
-            id:343536,
-            title:'Nurses',
-            genre:'Reality',
-            titleYear:2020,
-            category:"tv",
-            buyPrice:11.99,
-            rentalPrice:4.99,
-            trailer:'',
-            description:"Set in Toronto, NURSES follows five young nurses working on the frontlines of a busy downtown hospital, dedicating their lives to helping others, while struggling to help themselves.",
-            featured:true,
-            src:"https://images2.vudu.com/poster2/1639730-168"
-
-        },
-
+       
 
 
 
@@ -406,6 +392,14 @@ const fakeDB = {
     {
 
         return this.products.filter((product) => product.category==="tv" &&product.featured==true);
+  
+
+
+    },
+    getFree()
+    {
+
+        return this.products.filter((product) => product.buyPrice==0);
   
 
 
