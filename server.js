@@ -21,6 +21,8 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 const sgMail = require("@sendgrid/mail");
+require('dotenv').config({ path: 'config/keys.env' })
+
 
 
 //////////////////////////////// ----ROUTES----///////////////////////////////////
@@ -46,9 +48,7 @@ app.get("/sign", (req, res) => {
   });
 });
 app.post("/sign", (req, res) => {
-  
-  var emailControl = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9_-]+)$/;
-  var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
+ 
   if (req.body.firstName ==="") {
     error1 = "*First name must be  between 2 and 30 character long";
     res.render("sign", {
@@ -56,13 +56,15 @@ app.post("/sign", (req, res) => {
       error1: error1,
     });
   }
-  if (req.body.lastName ==="") {
+  else if (req.body.lastName ==="") {
     error2 = "*Last name must be between 2 and 30 character long";
     res.render("sign", {
       title: "Sign In",
       error2: error2,
     });
   }  
+   
+  var emailControl = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9_-]+)$/;
   
   if (!emailControl.test(req.body.email)) {
     error3 = "*Please enter your email address";
@@ -71,14 +73,16 @@ app.post("/sign", (req, res) => {
       error3: error3,
     });
   }
-  var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
- if (!passwordControl.test(req.body.psw)) {
+ /* var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
+  if (!passwordControl.test(req.body.psw)) {
     error5 = "*Please enter valid password";
     res.render("sign", {
       title: "sign In",
       error5: error5,
     });
-  } else {
+  } */
+  
+  else {
     sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
     const msg = {
       to: "gozdearslan2010@gmail.com", // Change to your recipient
@@ -91,7 +95,7 @@ app.post("/sign", (req, res) => {
       .send(msg)
       .then(() => {
         console.log("Email sent");
-        res.redirect("/");
+        res.redirect("/welcome");
       })
       .catch((error) => {
         console.error(error);
@@ -132,7 +136,7 @@ app.post("/login", (req, res) => {
       })
       .then((message) => {
         console.log(message.sid);
-        res.redirect("/");
+        res.redirect("/welcome");
       });
   }
   //load index.handlebars
@@ -154,6 +158,13 @@ app.post("/contact", (req, res) => {
     title: "contact Page",
   });
 });
+app.get("/welcome", (req, res) => {
+  res.render("welcome", {
+    title: "Welcome",
+
+    
+  });
+});
 
 //----EACH PRODUCTS MOVIE ADN TV ROUTE---//
 app.get("/products/:id", (req, res) => {
@@ -169,6 +180,13 @@ app.get("/tv", (req, res) => {
     title: "Tv Shows",
 
     TV: fakeDB.getTv(),
+  });
+});
+app.get("/all", (req, res) => {
+  res.render("all", {
+    title: "All movies",
+
+    All: fakeDB.getAllProducts(),
   });
 });
 app.get("/movie", (req, res) => {
