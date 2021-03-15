@@ -46,15 +46,35 @@ app.get("/sign", (req, res) => {
   });
 });
 app.post("/sign", (req, res) => {
+  error1 = "*First name must be  between 2 and 30 character long";
+  error2 = "*Last name must be between 2 and 30 character long";
+  error3 = "*Please enter your email address";
+  error5 = "*Please enter valid password";
+
+  if (req.body.firstName == "" &&req.body.lastName === ""&& req.body.email =="" && req.body.psw===""){
+    
+    res.render("sign", {
+      title: "Sign In",
+      error1: error1,
+      error2: error2,
+      error3: error3,      
+      error5: error5,
+
+      
+    });
+
+  }
   if (req.body.firstName == "" || (req.body.firstName).length < 2) {
-    error1 = "*First name must be  between 2 and 30 character long";
+   
     res.render("sign", {
       title: "Sign In",
       error1: error1,
       
     });
-  } else if (req.body.lastName === "" || (req.body.lastName).length < 2) {
-    error2 = "*Last name must be between 2 and 30 character long";
+  } 
+  
+  if (req.body.lastName === "" || (req.body.lastName).length < 2) {
+   
     res.render("sign", {
       title: "Sign In",
       error2: error2,
@@ -65,7 +85,7 @@ app.post("/sign", (req, res) => {
   var emailControl = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9.-]+(\.[a-zA-Z0-9_-]+)$/;
 
   if (!emailControl.test(req.body.email)) {
-    error3 = "*Please enter your email address";
+
     res.render("sign", {
       title: "sign In",
       error3: error3,
@@ -74,13 +94,15 @@ app.post("/sign", (req, res) => {
   }
   var passwordControl = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*){8,}/;
   if (!passwordControl.test(req.body.psw) ||(req.body.psw).length == "") {
-    error5 = "*Please enter valid password";
+   
     res.render("sign", {
       title: "sign In",
       error5: error5,
      
     });
-  } else {
+  } 
+  
+  if(emailControl.test(req.body.email)&&passwordControl.test(req.body.psw)&&!(req.body.firstName == ""&&!(req.body.lastName === ""))) {
     sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
     const msg = {
       to: "gozdearslan2010@gmail.com", // Change to your recipient
@@ -114,7 +136,7 @@ app.post("/login", (req, res) => {
       title: "log In",
       error1: error1,
     });
-  } else if (req.body.psw === "") {
+  } else if (req.body.psw == "") {
     error2 = "*Password must be 8 character length";
     res.render("login", {
       title: "Log In",
