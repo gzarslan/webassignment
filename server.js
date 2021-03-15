@@ -103,7 +103,7 @@ app.post("/sign", (req, res) => {
 
 //---LOGIN---//
 app.get("/login", (req, res) => {
-  //load about.handlebars
+ 
 
   res.render("login", {});
 });
@@ -165,7 +165,7 @@ app.get("/welcome", (req, res) => {
 
 //----EACH PRODUCTS MOVIE ADN TV ROUTE---//
 app.get("/products/:id", (req, res) => {
-  //console.log(req.params.id)
+  
   res.render("movieAndTvDescription", {
     product: fakeDB.getAProduct(req.params.id),
   });
