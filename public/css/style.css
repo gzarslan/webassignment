@@ -399,8 +399,16 @@ span.price {
 }
 
 /* Hide the images by default */
-.mySlides {
-  width: 2000%;
+.slideShow {
+  width: 1900px;
+  height: 600px;
+ 
+  
+}
+#slideImg{
+width: 90px;
+  height: 500px;  
+
 }
 
 /* Next & previous buttons */
