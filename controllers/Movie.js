@@ -2,9 +2,10 @@
 /*********************Task ROUTES***************************/
 const express = require('express')
 const router = express.Router();
+router.use(express.static("public"));
 const mongoose = require('mongoose');
 const movieModel = require('../models/Movie');
-router.use(express.static("public"));
+
 const path=require('path');
 //import database module
 const fakeDB = require("../models/FakeDB");
@@ -167,13 +168,13 @@ picture,
  error5="";
  
  if(!title) error1="movie title is required";
- if(!titleYear) error3="movie titleYear must be entered"; 
- if(!rentalPrice) error4="Rental price  is required";
- if(!buyPrice) error5="Purchase price  is required";
- if(!description)error6="description is required";
- if(!req.files) error7="File must be uploaded";
+ if(!titleYear) error2="movie titleYear must be entered"; 
+ if(!rentalPrice) error3="Rental price  is required";
+ if(!buyPrice) error4="Purchase price  is required";
+ if(!description)error5="description is required";
+ if(!req.files) error6="File must be uploaded";
 
- if(error7||error1||error2||error3||error4||error5||error6){
+ if(error1||error2||error3||error4||error5||error6){
      res.render("Movie/add",{
          title:"add movie",
          error1,  
@@ -182,7 +183,6 @@ picture,
          error4,
          error5,
          error6,
-         error7,
          title,
          category,
          titleYear,
@@ -377,7 +377,7 @@ router.delete("/delete/:_id",(req,res)=>{
   movieModel.deleteOne({_id:req.params._id})
   .then(()=>{
       console.log("delete");
-      res.redirect("Movie/dashboard");
+      res.redirect("/");
   })
   .catch(error=>console.log(`Error during deleting one document from database: ${error}`));
 

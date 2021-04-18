@@ -2,9 +2,10 @@
 const express = require('express')
 const router = express.Router();
 //const user =userModel(user);
+router.use(express.static("public"));
 const userModel = require('../models/User');
 const bcrypt=require('bcryptjs');
-router.use(express.static("public"));
+
 const checkLogIn=require('../middleware/authentication.js');
 const checkAdmin=require('../middleware/authorization.js');
 const sgMail = require("@sendgrid/mail");
