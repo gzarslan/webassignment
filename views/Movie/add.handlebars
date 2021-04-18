@@ -1,0 +1,72 @@
+
+<section>
+  <div class="form" id="myForm">
+    <form action="/movie/add" class="form-container" method="POST" enctype="multipart/form-data">
+      <fieldset id="logField">
+        <h1>Create movie</h1>
+     
+        <label for="title"><b>*Movie Title</b></label>
+           <p style="color:red; font-size:0.8em;">{{error1}}</p>
+        <input type="text" placeholder="Enter title" tabindex="1" maxlength="25" name="title" value={{title}} >
+     
+        
+        <label for="category"><b>*category</b></label>
+        <select name="category">
+            <option value="mv">movie</option>
+            <option value="tv">TV</option>    </select>       
+     
+       
+  
+        <label for="email"><b>*Year</b></label>
+        <input type="text" placeholder="Enter year" name="titleYear" value={{titleYear}} >
+        <p style="color:red; font-size:0.8em;">{{error3}}</p>
+
+  
+        <label for="psw"><b>*Rental price</b></label>
+        <input id="psw" type="password" placeholder="Enter rental price" name="rentalPrice" value={{rentalPrice}} >
+        <p style="color:red; font-size:0.8em;">{{error4}}</p>
+
+         <label for="psw"><b>*Purchase price</b></label>
+        <input id="psw" type="password" placeholder="Enter rental price" name="buyPrice" value={{buyPrice}} >
+        <p style="color:red; font-size:0.8em;">{{error5}}</p> 
+  
+
+      <label for="psw"><b>*featured</b></label>
+        <select name="featured">
+            <option value="yes">yes</option>
+            <option value="no">no</option>
+        </select>
+        
+        <textarea id="description" name="description" rows="4" cols="50"
+            placeholder="description...">{{description}}</textarea>
+    
+        <p style="color:red; font-size:0.8em;">{{error6}}</p>
+       
+        
+      <label for="psw"><b>*Image for movie</b></label>
+        <input type="file" name="picture" id="small_picture">            
+        <p style="color:red; font-size:0.8em;">{{error7}}</p>
+     
+
+    
+        <div style="margin: auto;">
+            <a href="Movie/all">
+            <button type="submit" class="btn">view all movies</button>
+            </a>
+        </div>
+    </form>
+        <button type="submit" class="btn">Add movie</button>
+         <div class="modal-footer" style="margin: auto;" >
+          
+           
+            <a href="/user/admin"><input type="button" value="Exit" class="btn btn-danger" style="width:60px"/></a>
+        </div>
+
+
+</section>
+
+
+        
+   
+
+</section>

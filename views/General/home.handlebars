@@ -28,17 +28,28 @@
   </div>
 
  
- <a id="containerAll" href="/movie">Featured Movies </a>
+ <a id="containerAll" href="Movie/movie">Featured Movies </a>
     <p>
      
       <br>
     <div class="mv">
-      {{#each MV}}
+      {{#each movies}}
       <div class="mvProducts">
         <fieldset>
-          <a id="pro"href="/products/{{this.id}}"> 
-            <img src="{{this.src}}" />
-            <p  class="name">{{this.title}}</p>
+               {{#if user}} 
+                <a id="pro"href="/movie/listing/{{this._id}}"> 
+                 <img src="/images/{{this.picture}}" />
+                  <p  class="name">{{this.title}}</p>
+             {{/if}}
+           <a id="pro"href="listing/{{this._id}}">
+            <img src="{{this.picture}}" />
+            <p class="name">{{this.title}}</p></a>
+            <a href="/movie/edit/{{this._id}}">
+          <span>Edit</span> <br>
+          </a>
+           <a href="/movie/delete/{{this._id}}?method=DELETE">
+           <span>Delete</span></a>
+           
          </a>
         </fieldset>
       </div>
@@ -58,7 +69,7 @@
 
     <hr>
    
-     <a id="containerAll" href="/tv">Featured Tv Shows </a>
+     <a id="containerAll" href="Movie/tv">Featured Tv Shows </a>
     <p>
       
       <br>
@@ -69,10 +80,20 @@
       {{#each TV}}
       <div class="tvProducts">
         <fieldset>
-          <a id="pro" href="/products/{{this.id}}">
-            <img src="{{this.src}}" />
+          {{#if user}}
+          <a id="pro" href="/movie/listing/{{this._id}}">
+          <img src="{{this.picture}}" />
             <p class="name">{{this.title}}</p>
           </a>
+          {{/if}}
+          <a id="pro"href="listing/{{this._id}}">
+            <img src="{{this.picture}}" />
+            <p class="name">{{this.title}}</p></a>
+            <a href="/movie/edit/{{this._id}}">
+          <span>Edit</span> <br>
+          </a>
+           <a href="/movie/delete/{{this._id}}?method=DELETE">
+           <span>Delete</span></a>
         </fieldset>
       </div>
 

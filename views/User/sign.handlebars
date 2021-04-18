@@ -1,11 +1,11 @@
 <section>
   <div class="form" id="myForm">
-    <form action="/sign" class="form-container" method="POST">
+    <form action="/user/sign" class="form-container" method="POST" enctype="multipart/form-data">
       <fieldset id="logField">
         <h1>Create Account</h1>
 
         <label for="email"><b>*First Name</b></label>
-        <input type="text" placeholder="Enter first name" tabindex="1" maxlength="25"name="firstName" value={{req.body.firstName}} >
+        <input type="text" placeholder="Enter first name" tabindex="1" maxlength="25" name="firstName" value={{firstName}} >
         <p id="errorsS">{{error1}}</p>
 
         <label for="email"><b>*Last Name</b></label>

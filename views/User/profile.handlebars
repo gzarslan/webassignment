@@ -1,0 +1,113 @@
+<section>
+  <div class="form" id="myForm">
+         <h1>Welcome {{user.firstName}} </h1>
+
+  
+    <div id="welcome">
+{{!--       
+        <br><br>
+        <a href="/movie/add">
+             <div class="mv"> 
+     <h5  class="card-title">Add new movie</h5> </div></a> --}}
+      {{!-- <div class="mvProducts">
+        <fieldset>
+         
+            <img src="https://cdn2.iconfinder.com/data/icons/interactive-shadow-pack/100/_-5-512.png" />
+         
+         </a>
+        </fieldset>
+      </div>
+
+     
+   
+             
+           
+        <br>
+        <a href="/movie/all">
+             <div class="card-body">
+                    <h5  class="card-title">See all Movies </h5>
+                </div>
+            </a>
+            <br>
+               <a href="/movie/dashboard">
+             <div class="card-body">
+                    <h5  class="card-title">see all movie tasks </h5>
+                </div>
+            </a>
+            <br>
+    </div> --}}
+
+    <div class="container">
+    <div class="main-body">
+    
+        
+          <!-- /Breadcrumb -->
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                     
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                     <input type="file" name="picture" id="small_picture"> 
+                     <br>
+                     <br>
+                      Update Profile Picture
+                    <div class="mt-3">
+                      <h4>{{this.firstName}} {{this.lastName}}</h4>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+           
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                     {{this.firstName}} {{this.lastName}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                     {{this.email}}
+                    </div>
+                  </div>
+                  <hr>               
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Bay Area, San Francisco, CA
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">   
+              {{#if user}}
+              <a href="/"> <button  class="btn">Home</button></a>
+              <a href="/Movie/all"> <button  class="btn">My movies</button></a>
+                 <a href="/Movie/add"> <button  class="btn">Add Movie</button></a>                
+               <a href="/Movie/all"> <button  class="btn">view Movie task</button></a>      
+            
+                {{else}}
+                     <a href="/"> <button  class="btn">Home</button></a>
+              <a href="/Movie/all"> <button  class="btn">My movies</button></a>
+                 {{/if}}
+
+            </li>
+          </nav>
+           
+
+</section>

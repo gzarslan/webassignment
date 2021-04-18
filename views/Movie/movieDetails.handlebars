@@ -1,0 +1,32 @@
+<section>
+
+
+   <div class="pageDescription">
+      <div>
+         <p id="title"> {{movie.title}}</p>
+         <p id="image"><img src={{movie.picture}} />
+         </p>
+      
+      </div>
+      <div class="rating">
+         <span id="rating" class="fa fa-star checked"></span>
+         <span id="rating" class="fa fa-star checked"></span>
+         <span id="rating" class="fa fa-star checked"></span>
+         <span class="fa fa-star"></span>
+         <span class="fa fa-star"></span>
+
+      </div>
+        
+      <p id="desc"> {{movie.description}} </p>
+      <p id="price"><button class="add" :hover onclick="myFunction()">BUY <p> $ {{movie.buyPrice}}</p></button>
+         <button class="add" :hover onclick="myFunction()">RENT <p> $ {{movie.rentalPrice}}</p></button>
+
+      </p>
+    
+
+   </div>
+
+
+
+
+</section>

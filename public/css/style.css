@@ -109,7 +109,7 @@ body {
   
 }
 main {
-  width: 2000px;
+  width: 1500px;
   text-align: center;
   margin: auto;
   color: black;
@@ -395,18 +395,18 @@ span.price {
 .slideshow-container {
   max-width: 1000ex;
   position: relative;
-  margin: auto;
+
 }
 
 /* Hide the images by default */
 .slideShow {
-  width: 1900px;
+  width: 1500px;
   height: 600px;
  
   
 }
 #slideImg{
-  width: 90px;
+  width: 100px;
   height: 500px;  
 
 }
@@ -493,3 +493,37 @@ span.price {
     opacity: 1;
   }
 }
+
+/* profile */
+body{
+  margin-top:10px;
+  color: #1a202c;
+  text-align: left;
+  background-color: #e2e8f0;    
+}
+.main-body {
+  padding: 1px;
+
+}
+.card {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+  position: relative;
+  flex-direction: column;
+  min-width: 0;
+ 
+}
+
+.card-body {
+ 
+  min-height: 1px;
+  padding: 1rem;
+}
+
+.gutters-sm {
+  margin-right: 8px;
+  margin-left: 8px;
+}
+

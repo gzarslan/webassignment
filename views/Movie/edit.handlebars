@@ -1,0 +1,67 @@
+
+<section>
+  <div class="form" id="myForm">
+    <form action="/movie/update/{{_id}}?method=PUT" class="form-container" method="POST" enctype="multipart/form-data">
+      <fieldset id="logField">
+        <h1>Create movie</h1>
+
+        <label for="title"><b>*Movie Title</b></label>
+        <input type="text" placeholder="Enter title" tabindex="1" maxlength="25" name="title" value={{title}} > 
+        <p style="color:red; font-size:0.8em;">{{error1}}</p>
+
+        <label for="category"><b>*category</b></label>
+        <select name="category" value={{category}}>
+            <option value="mv"  {{is_mv type}}> movie</option>
+            <option value="tv"{{is_tv type}}>TV</option>
+        </select>
+        <p  style="color:red; font-size:0.8em;">{{error2}}</p>
+
+        <label for="email"><b>*Year</b></label>
+        <input type="text" placeholder="Enter year" name="titleYear" value={{titleYear}} >
+                <p style="color:red; font-size:0.8em;">{{error3}}</p>
+
+        <label for="psw"><b>*Rental price</b></label>
+        <input id="psw" type="password" placeholder="Enter rental price" name="rentalPrice" value={{rentalPrice}} >
+        <p style="color:red; font-size:0.8em;">{{error4}}</p>
+
+         <label for="psw"><b>*Purchase price</b></label>
+        <input id="psw" type="password" placeholder="Enter rental price" name="buyPrice" value={{buyPrice}} >
+        <p style="color:red; font-size:0.8em;">{{error5}}</p> 
+
+
+      <label for="psw"><b>*featured</b></label>
+        <select name="featured">
+            <option value="yes" {{is_featured type}}>yes</option>
+            <option value="no" {{not_featured type}}>no</option>
+        </select>
+        <br>
+        <textarea id="description" name="description" rows="4" cols="50"
+            placeholder="description...">{{description}}</textarea>
+    
+        <p style="color:red; font-size:0.8em;">{{error6}}</p>
+       
+         
+      <label for="psw"><b>*Image for movie</b></label>
+        <input type="file" name="picture" id="small_picture" value={{picture}}>  
+         <img src="/images/{{this.picture}}" class="card-img" alt="..."></a>          
+        <p style="color:red; font-size:0.8em;">{{error6}}</p>
+     
+
+    
+       
+    </form>
+        <button type="submit" class="btn">Edit movie</button>
+         <div class="modal-footer" style="margin: auto;" >
+          
+           
+            <a href="/user/admin"><input type="button" value="Exit" class="btn btn-danger" style="width:60px"/></a>
+        </div>
+
+
+</section>
+
+
+        
+   
+
+</section>

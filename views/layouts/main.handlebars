@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title> <!-- provide to have every page diffrent name -->
-  <link rel="stylesheet" href="/css/style.css">
+  <link  href="css/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -16,18 +16,30 @@
   <header id="head">
     <fieldset>
       <a id="logo" img="images/logo.png" href="/">
-        <img id="logo" href="/" src="/images/logo.png"></a>
+        <img id="logo" href="/" src="../images/logo.png"></a>
 
       <nav>
         <div class="topNav">
-          <a href="/movie">Movies </a>
-          <a href="/tv"> TV shows </a>
-          <a href="/all">All Movies </a>
-          <input id="search" type="text" placeholder="Search..">
-          <a href="/sign">Get Membership</a>
-          <a href="/login"><i class="material-icons">account_circle</i>Log In</a>
-          <a href="/payment" id="shopping"> <i class="material-icons">shopping_cart</i></a>
+          <a href="/Movie/movie">Movies </a>
+          <a href="/Movie/tv"> TV shows </a>
+          <a href="/Movie/all">All Movies </a>
+          <input id="search" type="text" placeholder="Search..">               
+          
+        
+          {{#if user}}
+       
+           <a href="/User/admin"><i class="material-icons">account_circle</i>{{user.firstName}}</a>
+          <a href="/User/logout"><i class="material-icons">account_circle</i>Log out</a>
+           <a href="/User/payment" id="shopping"> <i class="material-icons">shopping_cart</i></a>   
+                
+          {{else}}
+          <a href="/User/sign">Get Membership</a> 
+           <a href="/User/login"><i class="material-icons">account_circle</i>Log In</a>        
+          
+          {{/if}}
+            
         </div>
+          
       </nav>
     </fieldset>
   </header>
@@ -37,21 +49,15 @@
     {{{body}}}
 
   </main>
+   <hr>
 
-
-
-
-
-  <!-- Footer -->
-
-  <hr>
-  <footer class="bg-white">    <div class="row py-4">
+ <footer class="bg-white">    <div class="row py-4">
 
       <div class="col">
         <h6 class="text">Watch</h6>
         <ul class="list-unstyled mb-0">
-          <li class="mb-2"><a href="/movie" class="text-muted">Movies </a></li>
-          <li class="mb-2"><a href="/tv" class="text-muted">Tv shows</a></li>
+          <li class="mb-2"><a href="/Movie/movie" class="text-muted">Movies </a></li>
+          <li class="mb-2"><a href="/Movie/tv" class="text-muted">Tv shows</a></li>
           <li class="mb-2"><a href="#" class="text-muted">Free</a></li>
           <li class="mb-2"><a href="#" class="text-muted">New     </a></li>
         </ul>
@@ -59,10 +65,10 @@
       <div class="col">
         <h6 class="text-uppercase font-weight-bold mb-4">My Account</h6>
         <ul class="list-unstyled mb-0">
-          <li class="mb-2"><a href="/login" class="text-muted">Login</a></li>
-          <li class="mb-2"><a href="/sign" class="text-muted">Register</a></li>
+          <li class="mb-2"><a href="/User/login" class="text-muted">Login</a></li>
+          <li class="mb-2"><a href="/User/sign" class="text-muted">Register</a></li>
           <li class="mb-2"><a href="#" class="text-muted">Help</a></li>
-          <li class="mb-2"><a href="/contact" class="text-muted">Contact Us</a></li>
+          <li class="mb-2"><a href="/User/contact" class="text-muted">Contact Us</a></li>
         </ul>
       </div>
 
@@ -110,6 +116,13 @@
 
   </footer>
 
+
+
+
+  <!-- Footer -->
+
+ 
+ 
 
 
   <!-- Loads a browser JS files -->
