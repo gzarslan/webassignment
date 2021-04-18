@@ -24,7 +24,7 @@ const movieController = require("./controllers/Movie.js");
 
 const app = express();
 app.use(express.static("public"));
-app.use(fileUpload());
+
 //THIS TELLS THE APP OBJECT WHICH EXPRESS WHICH TEMPLATE ENGINE WE ARE USING
 
 require("dotenv").config({ path: "config/keys.env" });
@@ -52,7 +52,7 @@ app.engine("handlebars", exphbs({
 
 
 }));
-
+app.use(fileUpload());
 app.set("view engine", "handlebars");
 app.use(express.urlencoded({ extended: false }));
 
