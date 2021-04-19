@@ -159,6 +159,8 @@ router.post("/login",async(req,res)=>
   
   }
   else {
+
+   
                 const user = await userModel.findOne({email:req.body.email})  
                .then(user=>{
 
@@ -196,9 +198,8 @@ router.post("/login",async(req,res)=>
                             res.render("User/login",{
                                 title : "login",
                                 email:req.body.email,
-                                psw:req.body.psw,               
-                                error1,
-                                error2,
+                                psw:req.body.psw,             
+                             
                                 error3
                             
                           });

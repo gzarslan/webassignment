@@ -1,6 +1,6 @@
 const checkAdmin=(req,res)=>{
 
-    if(req.session.userInfo.userType==="admin"){
+    if(req.session.userInfo.type=="admin"){
        res.render("User/adminDashboard")
     }
     else{

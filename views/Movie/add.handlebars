@@ -6,7 +6,9 @@
         <h1>Create movie</h1>
      
         <label for="title"><b>*Movie Title</b></label>
+        {{#if error1}}
            <p style="color:red; font-size:0.8em;">{{error1}}</p>
+           {{/if}}
         <input type="text" placeholder="Enter title" tabindex="1" maxlength="25" name="title" value={{title}} >
      
         
@@ -19,16 +21,20 @@
   
         <label for="email"><b>*Year</b></label>
         <input type="text" placeholder="Enter year" name="titleYear" value={{titleYear}} >
+          {{#if error3}}
         <p style="color:red; font-size:0.8em;">{{error3}}</p>
-
+{{/if}}
   
         <label for="psw"><b>*Rental price</b></label>
         <input id="psw" type="password" placeholder="Enter rental price" name="rentalPrice" value={{rentalPrice}} >
+          {{#if error4}}
         <p style="color:red; font-size:0.8em;">{{error4}}</p>
-
+{{/if}}
          <label for="psw"><b>*Purchase price</b></label>
         <input id="psw" type="password" placeholder="Enter rental price" name="buyPrice" value={{buyPrice}} >
+          {{#if error5}}
         <p style="color:red; font-size:0.8em;">{{error5}}</p> 
+         {{/if }}
   
 
       <label for="psw"><b>*featured</b></label>
@@ -39,9 +45,9 @@
         
         <textarea id="description" name="description" rows="4" cols="50"
             placeholder="description...">{{description}}</textarea>
-    
+         {{#if error6}}
         <p style="color:red; font-size:0.8em;">{{error6}}</p>
-       
+       {{/if}}
         
       <label for="psw"><b>*Image for movie</b></label>
         <input type="file" name="picture" id="small_picture">            

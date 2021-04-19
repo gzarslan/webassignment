@@ -7,13 +7,19 @@
 
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" value={{email}} >
+        {{#if error1}}
         <p id="errors">{{error1}}</p>
- 
+      {{/if}}
         <label for="psw"><b>Password</b></label>
         <input id="psw" type="password" placeholder="Enter Password" name="psw" value={{psw}} >
+         {{#if error2}}
         <p id="errors">{{error2}}</p>
+           {{/if}}
 
         <button type="submit" class="btn" value="Add user">Login</button>
+           {{#if error3}}
+            <p id="errors">{{error3}}</p>
+           {{/if}}
        
     </form>
     </fieldset>
