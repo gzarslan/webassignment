@@ -27,7 +27,7 @@ app.use(express.static("public"));
 
 //THIS TELLS THE APP OBJECT WHICH EXPRESS WHICH TEMPLATE ENGINE WE ARE USING
 
-require("dotenv").config({ path: "config/keys.env" });
+//require("dotenv").config({ path: "config/keys.env" });
 //helpers for edit handlebars
 app.engine("handlebars", exphbs({
 
