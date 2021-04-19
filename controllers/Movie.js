@@ -374,10 +374,10 @@ try{
   let filterByTitle= movieModel.find().where("movie_title").regex(`${search}`);
  
   let movies=[];
-  let msg="";
+  var error="";
 
   if(filterByTitle.length==0){
-      msg= "Sorry, can't find the movies";
+      error= "Sorry, can't find the movies";
   }
   else{
       if (filterByTitle.length>0){
@@ -409,7 +409,7 @@ try{
 
   res.render("Movie/searchPage",{
       title:"searchResult",
-      msg,
+      error,
       movies,
   });
 
