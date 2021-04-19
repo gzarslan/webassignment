@@ -13,7 +13,8 @@ WEB322 assignment 3-5
     
    
  4. To run project locally:
-    The libraries Node.js and npm must be upload 
+    The libraries Node.js and npm must be upload.
+    
     Create config file that inclues enviroment varibales;
           * SEND_GRID_API_KEY
           * MONGO_DB_CONNECTION 
