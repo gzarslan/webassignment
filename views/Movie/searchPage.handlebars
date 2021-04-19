@@ -5,8 +5,8 @@
        
     
       <div>
-         <p id="title"> {{movieDetail.title}}</p>
-         <p id="image"><img src="{{movieDetail.picture}}"/>
+         <p id="title"> {{movie.title}}</p>
+         <p id="image"><img src="{{movie.picture}}"/>
          </p>
       
       </div>
@@ -19,11 +19,11 @@
 
       </div>
         
-      <p id="desc"> {{movieDetail.description}} </p>
+      <p id="desc"> {{movie.description}} </p>
        <form action="/movie/payment" class="form-container" method="POST" >
-      <p id="price"><button type="submit" class="add" :hover onclick="">BUY <p> $ {{movieDetail.buyPrice}}</p></button>
+      <p id="price"><button type="submit" class="add" :hover onclick="">BUY <p> $ {{movie.buyPrice}}</p></button>
      
-        <button type="submit" class="add" :hover onclick="">RENT <p> $ {{movieDetail.rentalPrice}}</p></button>
+        <button type="submit" class="add" :hover onclick="">RENT <p> $ {{movie.rentalPrice}}</p></button>
          </form>
 
       </p>

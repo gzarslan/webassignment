@@ -15,15 +15,17 @@
 <body>
   <header id="head">
     <fieldset>
+      
       <a id="logo" img="images/logo.png" href="/">
         <img id="logo" href="/" src="../images/logo.png"></a>
 
       <nav>
         <div class="topNav">
+          
           <a href="/Movie/movie">Movies </a>
           <a href="/Movie/tv"> TV shows </a>
           <a href="/Movie/all">All Movies </a>
-          <input id="search" type="text" placeholder="Search..">               
+           
           
         
           {{#if user}}
@@ -42,6 +44,10 @@
           
       </nav>
     </fieldset>
+     <form class="" action="/movie/search" method="POST">
+            <input id="search" type="text" placeholder="Search..">               
+         <button class="btn-2" type="submit">Search</button>
+            </form>
   </header>
 
 

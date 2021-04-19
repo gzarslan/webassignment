@@ -41,6 +41,8 @@ catch(error){
     console.log(`error happened because of ${error}`);              
 }
   });
+
+
   //all movies routes
  router.get("/all", async(req, res) => {
     try{
@@ -98,43 +100,19 @@ catch(error){
   }
   });
 
-  router.get("/listing/:id", async(req, res) => {
-    try{
-    
-
-          const isValid=await movieModel.exists({_id: req.params._id});
-          if(isValid){
-              const returnMovie=await movieModel.findOne({_id:req.params._id});
-              const {_id,title,category,rentalPrice,buyPrice,description,featured,picture}=returnMovie;
-              movie={_id,title,category,rentalPrice,buyPrice,description,featured,picture}
-              res.redirect("/movie/movieDetails",{
-                  title:"movieDetail",
-                  
-              });
   
-          }
-          else{
-               res.render("Movie/404",{
-                  title:"nothing",
-                
-              });
-          }
-      
 
-  }catch(error){
-      console.log(`error happens because of ${error}`);
-  }
-  });
 
-  router.get("/movieDetails", (req, res) => {
   
-    res.render("Movie/movieDetails", {
+  router.get("/payment", (req, res) => {
+  
+    res.render("User/payment", {
      title:"get movie"
     });
   });
-  router.get("/dashboard", (req, res) => {
+  router.post("/payment", (req, res) => {
   
-    res.render("Movie/dashboard", {
+    res.render("User/payment", {
      title:"get movie"
     });
   });
@@ -147,7 +125,7 @@ router.get("/add", (req, res) => {
 });
 
 
-router.post("/add",async(req,res)=>{
+router.post("/add",(req,res)=>{
  //rules for inserting database
 
  
@@ -158,14 +136,14 @@ router.post("/add",async(req,res)=>{
  buyPrice,
  rentalPrice,  
  description,
- featured,
-picture,           
+ featured          
 }=req.body;
  let error1="",  
  error2="",
  error3="",
  error4="",
  error5="";
+ error6="";
  
  if(!title) error1="movie title is required";
  if(!titleYear) error2="movie titleYear must be entered"; 
@@ -189,13 +167,14 @@ picture,
          buyPrice,
          rentalPrice,
          description,
-         featured
+         featured,
+         
      })
  }
  else{
-    next();
+  
 
- }
+ 
       const newMovie = {
       title:req.body.title,     
       category:req.body.category,
@@ -203,7 +182,8 @@ picture,
       rentalPrice:req.body.rentalPrice,
       buyPrice:req.body.buyPrice,
       description:req.body.description,
-      featured:req.body.featured     
+      featured:req.body.featured  
+         
       };
       
 
@@ -212,86 +192,67 @@ picture,
          .then((movie)=>{
             const error1="";
             const error2="";
-            const ext=['.jpg','.png']
-          if (req.files.picture &&ext.includes(path.parse(req.files.picture.name).ext))
+            const ext=['.jpg','.png'];
+            if (req.files.picture &&ext.includes(path.parse(req.files.picture.name).ext))
            {
-          req.files.picture.name=`${movie._id}${path.parse(req.files.picture.name).ext}`
-          req.files.picture.mv(`public/images/${req.files.picture.name}`)
-          .then(()=>{
+              req.files.picture.name=`/images/${movie._id}${path.parse(req.files.picture.name).ext}`
+              req.files.picture.mv(`public/${req.files.picture.name}`)
+              .then(()=>{
 
-            movieModel.updateOne({_id:movie._id},{
-              picture:req.files.picture.name
-          })
-          .then(()=>{
-           res.redirect("/movie/dashboard");
-            next();
-          })
-          .catch(error=>console.log(`Error during reading from database: ${error}`));
+                movieModel.updateOne({_id:movie._id},{
+                  picture:req.files.picture.name
+              })
+              .then(()=>{
+              res.redirect("/");
+              
+              })
+              .catch(error=>console.log(`Error during reading from database: ${error}`));
+            
 
-        }) 
-        .catch(error=>console.log(`Error during reading from database: ${error}`));
-
-      }
+            }) 
+            .catch(error=>console.log(`Error during reading from database: ${error}`));
+           }
+       })
+           .catch(error=>console.log(`Error during reading from database: ${error}`));
+         
+     }
        
-
-    })   
-    //  const returnMovie = movie.save()
-    //  var picture = "";
-
-    //  picture=`movie_pic_${returnMovie._id}${path.parse(req.files.src.name).ext}`;
-
-      
-
-    //   let nModified=movieModel.updateOne({ _id: returnMovie._id }, { small_picture:small_pic_name,large_picture:large_pic_name });
-    //   req.files.small_picture.mv(`public/images/${picture}`)
-   
-    //     .then(()=>{
-    //       req.session.movieInfo=returnMovie;
-    //         res.redirect("/movie/list",{
-    //             title:"add",
-    //             success
-    //         });
-    //     }) .catch(error=>console.log(`Error during reading from database: ${error}`));
-    
+ 
       
 
 })
 
 
-router.get("/list",(req,res)=>{
-  movieModel.find()
+router.get("/listing/:_id",(req,res)=>{
+
+  console.log(`_id is ${req.params._id}`);
+  movieModel.findOne({_id:req.params._id})
   .then((returnMovies)=>{
 
-      const movie=returnMovies.map((movie)=>{          
-          const {_id,
-             title,
-             category,
-            titleYear,          
-            buyPrice,
-            rentalPrice,  
-            description,
-            featured,
-           picture           
-          }=movie;
-          return {
-            _id ,
-            title,   
-            category,        
-            titleYear,           
-            buyPrice,
-            rentalPrice,  
-            description,
-            featured,
-            picture,
-           
-          }
-      });
-      res.render("Movie/movieDetail",{
-          title:"AllMovie",
-          ALL
+      
+        const movieDetail={
+          
+            _id:returnMovies._id ,
+            title:returnMovies.title,   
+            category:returnMovies.category,        
+            titleYear:returnMovies.titleYear,           
+            buyPrice:returnMovies.buyPrice,
+            rentalPrice:returnMovies.rentalPrice,  
+            description:returnMovies.description,
+            featured:returnMovies.featured,
+            picture:returnMovies.picture
+        };
+        
+        console.log(`movieDetail is ${movieDetail}`);
+     
+      res.render("Movie/movieDetails",{
+          title:"",
+         movieDetail
       });
   })
   .catch(error=>console.log(`Error during reading from database: ${error}`));
+
+
 });
 
 
@@ -383,5 +344,147 @@ router.delete("/delete/:_id",(req,res)=>{
 
 });
 
+//search wrapper route
+router.post("/search", async(req,res)=>{
+
+  try{
+      const {searchValue}=req.body;   
+         let returnMovies= await movieModel.find().where("title").regex(`${searchValue}`);
+    
+     
+   
+
+      if(returnMovies.length==0 ){
+          msg= "Sorry, can't find the movies";
+      }
+      else{
+        
+        movieModel.findOne({returnMovies:req.body.title})
+        .then((returnMovies)=>{
+      
+            
+              const searchDetail={
+                
+                  _id:returnMovies._id ,
+                  title:returnMovies.title,   
+                  category:returnMovies.category,        
+                  titleYear:returnMovies.titleYear,           
+                  buyPrice:returnMovies.buyPrice,
+                  rentalPrice:returnMovies.rentalPrice,  
+                  description:returnMovies.description,
+                  featured:returnMovies.featured,
+                  picture:returnMovies.picture
+              };
+              
+              console.log(`movieDetail is ${searchDetail}`);
+           
+            res.render("Movie/searchPage",{
+                title:"",
+                searchDetail
+            });
+        })
+        .catch(error=>console.log(`Error during reading from database: ${error}`));
+      }
+
+  }
+  catch (error) {
+      console.log(` ${error}`);
+  }
+
+//   try{
+//     const {searchValue}=req.body;   
+//        let returnMovies= await movieModel.find().where("title").regex(`${searchValue}`);
+  
+   
+ 
+
+//     if(returnMovies.length==0 ){
+//         msg= "Sorry, can't find the movies";
+//     }
+//     else{
+      
+//       movieModel.findOne({title:req.body.searchValue})
+//       .then((returnMovies)=>{
+    
+          
+//             const searchDetail={
+              
+//                 _id:returnMovies._id ,
+//                 title:returnMovies.title,   
+//                 category:returnMovies.category,        
+//                 titleYear:returnMovies.titleYear,           
+//                 buyPrice:returnMovies.buyPrice,
+//                 rentalPrice:returnMovies.rentalPrice,  
+//                 description:returnMovies.description,
+//                 featured:returnMovies.featured,
+//                 picture:returnMovies.picture
+//             };
+            
+//             console.log(`movieDetail is ${searchDetail}`);
+         
+//           res.render("Movie/searchPage",{
+//               title:"",
+//               searchDetail
+//           });
+//       })
+//       .catch(error=>console.log(`Error during reading from database: ${error}`));
+//     }
+
+// }
+// catch (error) {
+//     console.log(` ${error}`);
+// }
+// try{
+//   const {search}=req.body;
+//   let filterByTitle= movieModel.find().where("movie_title").regex(`${search}`);
+ 
+//   let movies=[];
+//   let msg="";
+
+//   if(filterByTitle.length==0){
+//       msg= "Sorry, can't find the movies";
+//   }
+//   else{
+//       if (filterByTitle.length>0){
+//           movies=filterByTitle.map((movie)=>{
+//             const {_id,
+//               title,
+//               category,
+//              titleYear,   
+//              buyPrice,
+//              rentalPrice,  
+//              description,
+//              featured,
+//              picture
+//            }=movie;
+//               return {_id,
+//                 title,
+//                 category,
+//                titleYear,   
+//                buyPrice,
+//                rentalPrice,  
+//                description,
+//                featured,
+//                picture
+//              }
+//           });
+//       }
+     
+//   } 
+
+//   res.render("Movie/searchPage",{
+//       title:"searchResult",
+//       msg,
+//       movies,
+//   });
+
+
+// }
+// catch (error) {
+//   console.log(` ${error}`);
+// }
+
+
+});
 
 module.exports=router;

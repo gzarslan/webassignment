@@ -11,8 +11,8 @@
 
         <label for="category"><b>*category</b></label>
         <select name="category" value={{category}}>
-            <option value="mv"  {{is_mv type}}> movie</option>
-            <option value="tv"{{is_tv type}}>TV</option>
+            <option value="mv"  {{isMv type}}> movie</option>
+            <option value="tv"{{isTv type}}>TV</option>
         </select>
         <p  style="color:red; font-size:0.8em;">{{error2}}</p>
 
@@ -31,8 +31,8 @@
 
       <label for="psw"><b>*featured</b></label>
         <select name="featured">
-            <option value="yes" {{is_featured type}}>yes</option>
-            <option value="no" {{not_featured type}}>no</option>
+            <option value="yes" {{isFeatured type}}>yes</option>
+            <option value="no" {{notFeatured type}}>no</option>
         </select>
         <br>
         <textarea id="description" name="description" rows="4" cols="50"

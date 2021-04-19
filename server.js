@@ -27,24 +27,24 @@ app.use(express.static("public"));
 
 //THIS TELLS THE APP OBJECT WHICH EXPRESS WHICH TEMPLATE ENGINE WE ARE USING
 
-//require("dotenv").config({ path: "config/keys.env" });
+require("dotenv").config({ path: "config/keys.env" });
 //helpers for edit handlebars
 app.engine("handlebars", exphbs({
 
   helpers:{
-    is_mv:function(type){
+    isMv:function(type){
         if(type==="mv")
             return "selected";
     },
-    is_tv:function(type){
+    isTv:function(type){
         if(type==="tv")
             return "selected";
     },
-    is_featured:function(featured){
+    isFeatured:function(featured){
         if(featured==="yes")
             return "selected";
     },
-    not_featured:function(featured){
+    notFeatured:function(featured){
         if(featured==="no")
             return "selected";
     }
