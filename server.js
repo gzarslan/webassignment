@@ -1,8 +1,8 @@
 /***********************
  --Name:Gozde Arslan 
  --ID: 150320190 
- --Date: 13/03/2021
- --Purpose: Assignment 2 WEB322
+ --Date: 19/04/2021
+ --Purpose: Assignment 3-5 WEB322
   --***********************/
 
 const express = require("express");
@@ -27,7 +27,7 @@ app.use(express.static("public"));
 
 //THIS TELLS THE APP OBJECT WHICH EXPRESS WHICH TEMPLATE ENGINE WE ARE USING
 
-require("dotenv").config({ path: "config/keys.env" });
+//require("dotenv").config({ path: "config/keys.env" });
 //helpers for edit handlebars
 app.engine("handlebars", exphbs({
 

@@ -232,7 +232,7 @@ router.get("/profile",(req,res)=>{
 
 
 router.get("/admin",(req,res)=>{
-  res.render("User/adminDashboard", {
+  res.render("User/admindashboard", {
       title: "admin"
   });
 })
