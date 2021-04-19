@@ -16,8 +16,8 @@ WEB322 assignment 3-5
     -Express-handlebars
     
  3. Deployement: Project deployed on the heroku link :https://garslan-assignment2.herokuapp.com/
- 4. The user Login by user@user.com  password:
- 5. The admin Login by admin@admin.com   password:    
+ 4. The user Login by user@user.com  password:User.123
+ 5. The admin Login by admin@admin.com   password: Admin.123
    
  6. To run project locally:
     The libraries Node.js and npm must be upload.
