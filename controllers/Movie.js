@@ -16,9 +16,7 @@ const { nextTick } = require('process');
 //TV SHOWS ROUTE
 router.get("/tv", async(req, res) => {
   try{
- 
-
-    const returnedFeaturedTVs=await movieModel.find({category:'tv',featured:true});
+    const returnedFeaturedTVs=await movieModel.find({category:'tv',featured:true}); //await is working with async operation needs to return promise it does nt block execution
     const TV=returnedFeaturedTVs.map((products)=>{
       const {_id,
         title,
@@ -102,21 +100,6 @@ catch(error){
 
   
 
-
-  
-  router.get("/payment", (req, res) => {
-  
-    res.render("User/payment", {
-     title:"get movie"
-    });
-  });
-  router.post("/payment", (req, res) => {
-  
-    res.render("User/payment", {
-     title:"get movie"
-    });
-  });
-
 router.get("/add", (req, res) => {
   
   res.render("Movie/add", {
@@ -172,9 +155,6 @@ router.post("/add",(req,res)=>{
      })
  }
  else{
-  
-
- 
       const newMovie = {
       title:req.body.title,     
       category:req.body.category,
@@ -190,8 +170,7 @@ router.post("/add",(req,res)=>{
       const movie = new movieModel(newMovie);
          movie.save()
          .then((movie)=>{
-            const error1="";
-            const error2="";
+           
             const ext=['.jpg','.png'];
             if (req.files.picture &&ext.includes(path.parse(req.files.picture.name).ext))
            {
@@ -347,50 +326,6 @@ router.delete("/delete/:_id",(req,res)=>{
 //search wrapper route
 router.post("/search", async(req,res)=>{
 
-  try{
-      const {searchValue}=req.body;   
-         let returnMovies= await movieModel.find().where("title").regex(`${searchValue}`);
-    
-     
-   
-
-      if(returnMovies.length==0 ){
-          msg= "Sorry, can't find the movies";
-      }
-      else{
-        
-        movieModel.findOne({returnMovies:req.body.title})
-        .then((returnMovies)=>{
-      
-            
-              const searchDetail={
-                
-                  _id:returnMovies._id ,
-                  title:returnMovies.title,   
-                  category:returnMovies.category,        
-                  titleYear:returnMovies.titleYear,           
-                  buyPrice:returnMovies.buyPrice,
-                  rentalPrice:returnMovies.rentalPrice,  
-                  description:returnMovies.description,
-                  featured:returnMovies.featured,
-                  picture:returnMovies.picture
-              };
-              
-              console.log(`movieDetail is ${searchDetail}`);
-           
-            res.render("Movie/searchPage",{
-                title:"",
-                searchDetail
-            });
-        })
-        .catch(error=>console.log(`Error during reading from database: ${error}`));
-      }
-
-  }
-  catch (error) {
-      console.log(` ${error}`);
-  }
-
 //   try{
 //     const {searchValue}=req.body;   
 //        let returnMovies= await movieModel.find().where("title").regex(`${searchValue}`);
@@ -434,57 +369,72 @@ router.post("/search", async(req,res)=>{
 // catch (error) {
 //     console.log(` ${error}`);
 // }
-// try{
-//   const {search}=req.body;
-//   let filterByTitle= movieModel.find().where("movie_title").regex(`${search}`);
+try{
+  const {search}=req.body;
+  let filterByTitle= movieModel.find().where("movie_title").regex(`${search}`);
  
-//   let movies=[];
-//   let msg="";
+  let movies=[];
+  let msg="";
 
-//   if(filterByTitle.length==0){
-//       msg= "Sorry, can't find the movies";
-//   }
-//   else{
-//       if (filterByTitle.length>0){
-//           movies=filterByTitle.map((movie)=>{
-//             const {_id,
-//               title,
-//               category,
-//              titleYear,   
-//              buyPrice,
-//              rentalPrice,  
-//              description,
-//              featured,
-//              picture
-//            }=movie;
-//               return {_id,
-//                 title,
-//                 category,
-//                titleYear,   
-//                buyPrice,
-//                rentalPrice,  
-//                description,
-//                featured,
-//                picture
-//              }
-//           });
-//       }
+  if(filterByTitle.length==0){
+      msg= "Sorry, can't find the movies";
+  }
+  else{
+      if (filterByTitle.length>0){
+          movies=filterByTitle.map((movie)=>{
+            const {_id,
+              title,
+              category,
+             titleYear,   
+             buyPrice,
+             rentalPrice,  
+             description,
+             featured,
+             picture
+           }=movie;
+              return {_id,
+                title,
+                category,
+               titleYear,   
+               buyPrice,
+               rentalPrice,  
+               description,
+               featured,
+               picture
+             }
+          });
+      }
      
-//   } 
+  } 
 
-//   res.render("Movie/searchPage",{
-//       title:"searchResult",
-//       msg,
-//       movies,
-//   });
-
-
-// }
-// catch (error) {
-//   console.log(` ${error}`);
-// }
+  res.render("Movie/searchPage",{
+      title:"searchResult",
+      msg,
+      movies,
+  });
 
 
+}
+catch (error) {
+  console.log(` ${error}`);
+}
+
+
+});
+
+
+  
+router.get("/payment", (req, res) => {
+  
+  res.render("User/payment", {
+   title:"get movie"
+  });
+});
+router.post("/payment", (req, res) => {
+
+  res.render("User/payment", {
+   title:"get movie"
+  });
 });
 
 module.exports=router;
