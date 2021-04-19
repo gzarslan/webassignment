@@ -230,8 +230,8 @@ router.get("/profile",(req,res)=>{
 })
 
 
-router.get("/admin",checkAdmin,(req,res)=>{
-  res.render("User/admin", {
+router.get("/admin",(req,res)=>{
+  res.render("User/adminDashboard", {
       title: "admin"
   });
 })

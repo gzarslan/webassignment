@@ -421,7 +421,13 @@ catch (error) {
 
 
 });
-
+ 
+router.get("/dashboard", (req, res) => {
+  
+  res.render("Movie/dashboard", {
+   title:"get movie"
+  });
+});
 
   
 router.get("/payment", (req, res) => {

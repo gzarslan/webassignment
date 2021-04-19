@@ -8,14 +8,14 @@
       {{#each All}}
     
       <div class="allProduct">
-        <fieldset>
-          {{#if user}} 
-          <a id="pro"href="/listing/{{this._id}}">
+        <fieldset>    
+           
+      {{#if user}}
+          <a id="pro"href="listing/{{this._id}}">
             <img src="{{this.picture}}" />
             <p class="name">{{this.title}}</p></a>
-            
-       {{/if}}
-          <a id="pro"href="listing/{{this._id}}">
+          {{else}}
+           <a id="pro"href="listing/{{this._id}}">
             <img src="{{this.picture}}" />
             <p class="name">{{this.title}}</p></a>
             <a href="/movie/edit/{{this._id}}">
@@ -23,8 +23,9 @@
           </a>
            <a href="/movie/delete/{{this._id}}?method=DELETE">
            <span>Delete</span></a>
-
+         {{/if}}
         </fieldset>
+     
       </div>
 
       {{/each}}

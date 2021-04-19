@@ -1,10 +1,10 @@
 const checkAdmin=(req,res)=>{
 
-    if(req.session.userInfo.type=="admin"){
-         res.render("User/profile");
+    if(req.session.userInfo.userType==="admin"){
+       res.render("User/adminDashboard")
     }
     else{
-        res.render("User/welcome");
+        res.render("/user/welcome");
     }
 }
 
