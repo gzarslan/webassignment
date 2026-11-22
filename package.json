@@ -15,7 +15,7 @@
   "dependencies": {
     "@sendgrid/mail": "",
     "bcryptjs": "",
-    "express": ",
+    "express": "",
     "express-fileupload": "",
     "express-handlebars": "",
     "express-session": "",  
