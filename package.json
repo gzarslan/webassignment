@@ -13,17 +13,17 @@
   "license": "ISC",
   
   "dependencies": {
-    "@sendgrid/mail": "^7.4.2",
-    "bcryptjs": "^2.4.3",
-    "express": "^4.17.1",
-    "express-fileupload": "^1.2.1",
-    "express-handlebars": "^5.2.0",
-    "express-session": "^1.17.1",  
-    "mongoose": "^5.12.1",
-    "twilio": "^3.57.0"
+    "@sendgrid/mail": "",
+    "bcryptjs": "",
+    "express": ",
+    "express-fileupload": "",
+    "express-handlebars": "",
+    "express-session": "",  
+    "mongoose": "",
+    "twilio": ""
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
-    "nodemon": "^2.0.7"
+    "dotenv": "",
+    "nodemon": ""
   }
 }
